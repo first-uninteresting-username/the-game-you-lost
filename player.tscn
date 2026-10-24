@@ -16,3 +16,5 @@ texture = SubResource("PlaceholderTexture2D_pqj4k")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=559198875]
 shape = SubResource("RectangleShape2D_pqj4k")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=301283419]
