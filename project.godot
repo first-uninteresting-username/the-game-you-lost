@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="the-game-you-lost"
+config/name="you-are-the-ball"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 
 [editor_plugins]
