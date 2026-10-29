@@ -2,4 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://og40n6g6u6bp" path="res://player_base.tscn" id="1_x8fbi"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x8fbi"]
+size = Vector2(100, 100)
+
 [node name="Ball" unique_id=242010540 instance=ExtResource("1_x8fbi")]
+
+[node name="PlayerShape" parent="." index="0" unique_id=2060791932]
+shape = SubResource("RectangleShape2D_x8fbi")

@@ -5,6 +5,4 @@
 [node name="PlayerBase" type="CharacterBody2D" unique_id=242010540]
 script = ExtResource("1_d4awt")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1789614769]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2060791932]
+[node name="PlayerShape" type="CollisionShape2D" parent="." unique_id=2060791932]
