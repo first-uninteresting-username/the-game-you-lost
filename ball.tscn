@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://bm21stmk1wjua"]
+
+[ext_resource type="PackedScene" uid="uid://og40n6g6u6bp" path="res://player_base.tscn" id="1_x8fbi"]
+
+[node name="Ball" unique_id=242010540 instance=ExtResource("1_x8fbi")]
