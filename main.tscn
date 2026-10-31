@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://bl1kif25p1sbx"]
 
-[ext_resource type="PackedScene" uid="uid://bs0hwslna34mb" path="res://paddle.tscn" id="1_0xm2m"]
-[ext_resource type="PackedScene" uid="uid://bm21stmk1wjua" path="res://ball.tscn" id="2_h2yge"]
-[ext_resource type="PackedScene" uid="uid://djllum6i35hrm" path="res://horizontal_wall.tscn" id="3_h2yge"]
-[ext_resource type="PackedScene" uid="uid://d3hwipkp1dqf2" path="res://score_wall.tscn" id="4_1bvp3"]
-[ext_resource type="Script" uid="uid://d2rkghxnvjyl5" path="res://label.gd" id="5_lquwl"]
+[ext_resource type="PackedScene" uid="uid://bs0hwslna34mb" path="res://players/paddle.tscn" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://bm21stmk1wjua" path="res://players/ball.tscn" id="2_h2yge"]
+[ext_resource type="PackedScene" uid="uid://djllum6i35hrm" path="res://objects/horizontal_wall.tscn" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://d3hwipkp1dqf2" path="res://objects/score_wall.tscn" id="4_1bvp3"]
+[ext_resource type="Script" uid="uid://d2rkghxnvjyl5" path="res://objects/label.gd" id="5_lquwl"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_1bvp3"]
 font_size = 48
@@ -14,13 +14,16 @@ font_size = 48
 [node name="Paddle_1" parent="." unique_id=242010540 instance=ExtResource("1_0xm2m")]
 position = Vector2(40, 324)
 id = 1
+speed = 600.0
 
 [node name="Paddle_2" parent="." unique_id=1106818734 instance=ExtResource("1_0xm2m")]
 position = Vector2(1112, 324)
 id = 2
+speed = 600.0
 
 [node name="Ball" parent="." unique_id=1848407923 groups=["balls"] instance=ExtResource("2_h2yge")]
 position = Vector2(576, 324)
+y_top_speed = 2000.0
 player_id = 1
 
 [node name="UpperWall" parent="." unique_id=292088496 instance=ExtResource("3_h2yge")]
@@ -29,10 +32,10 @@ position = Vector2(576, -10)
 [node name="LowerWall" parent="." unique_id=621780781 instance=ExtResource("3_h2yge")]
 position = Vector2(576, 658)
 
-[node name="ScoreWall_1" parent="." unique_id=1863739005 instance=ExtResource("4_1bvp3")]
+[node name="ScoreWall_1" parent="." unique_id=1863739005 groups=["score_walls"] instance=ExtResource("4_1bvp3")]
 position = Vector2(-10, 324)
 
-[node name="ScoreWall_2" parent="." unique_id=1314898711 instance=ExtResource("4_1bvp3")]
+[node name="ScoreWall_2" parent="." unique_id=1314898711 groups=["score_walls"] instance=ExtResource("4_1bvp3")]
 position = Vector2(1162, 324)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1879152686]

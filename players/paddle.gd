@@ -2,6 +2,8 @@ extends "res://player_base.gd"
 
 @export var id: int = 0
 
+var home: Vector2
+
 func _physics_process(_delta) -> void:
 	var prefix = "p%d_" % id
 	var multiplier: float = 1.0 if player_id == id else 0.25
@@ -11,3 +13,7 @@ func _physics_process(_delta) -> void:
 
 func _ready() -> void:
 	player_id = id
+	home = position
+
+func reset() -> void:
+	position = home

@@ -1,9 +1,12 @@
 [gd_scene format=3 uid="uid://d3hwipkp1dqf2"]
 
+[ext_resource type="Script" uid="uid://dk3ifxqtj3ucm" path="res://objects/score_wall.gd" id="1_sjqgp"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pqj4k"]
 size = Vector2(20, 648)
 
 [node name="StaticBody2D" type="StaticBody2D" unique_id=1863739005]
+script = ExtResource("1_sjqgp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=35354997 groups=["score_walls"]]
 shape = SubResource("RectangleShape2D_pqj4k")

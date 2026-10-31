@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bm21stmk1wjua"]
 
-[ext_resource type="PackedScene" uid="uid://og40n6g6u6bp" path="res://player_base.tscn" id="1_x8fbi"]
-[ext_resource type="Script" uid="uid://boqkxhe48741w" path="res://ball.gd" id="2_41u45"]
+[ext_resource type="PackedScene" uid="uid://og40n6g6u6bp" path="res://players/player_base.tscn" id="1_x8fbi"]
+[ext_resource type="Script" uid="uid://boqkxhe48741w" path="res://players/ball.gd" id="2_41u45"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x8fbi"]
 size = Vector2(25, 25)
