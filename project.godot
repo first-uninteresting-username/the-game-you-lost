@@ -14,6 +14,10 @@ config/name="you-are-the-ball"
 run/main_scene="uid://bl1kif25p1sbx"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 
+[autoload]
+
+GameState="*uid://cthkogfcbjr22"
+
 [display]
 
 window/stretch/mode="canvas_items"
@@ -21,6 +25,13 @@ window/stretch/mode="canvas_items"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
+
+[global_group]
+
+paddles=""
+walls=""
+balls=""
+score_walls=""
 
 [input]
 

@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0sbc1"]
 size = Vector2(20, 200)
 
-[node name="Paddle" unique_id=242010540 instance=ExtResource("1_0sbc1")]
+[node name="Paddle" unique_id=242010540 groups=["paddles"] instance=ExtResource("1_0sbc1")]
 script = ExtResource("2_tbytw")
 id = 0
 

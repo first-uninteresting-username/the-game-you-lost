@@ -3,6 +3,11 @@
 [ext_resource type="PackedScene" uid="uid://bs0hwslna34mb" path="res://paddle.tscn" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://bm21stmk1wjua" path="res://ball.tscn" id="2_h2yge"]
 [ext_resource type="PackedScene" uid="uid://djllum6i35hrm" path="res://horizontal_wall.tscn" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://d3hwipkp1dqf2" path="res://score_wall.tscn" id="4_1bvp3"]
+[ext_resource type="Script" uid="uid://d2rkghxnvjyl5" path="res://label.gd" id="5_lquwl"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1bvp3"]
+font_size = 48
 
 [node name="Main" type="Node2D" unique_id=1673579518]
 
@@ -14,12 +19,32 @@ id = 1
 position = Vector2(1112, 324)
 id = 2
 
-[node name="Ball" parent="." unique_id=1848407923 instance=ExtResource("2_h2yge")]
+[node name="Ball" parent="." unique_id=1848407923 groups=["balls"] instance=ExtResource("2_h2yge")]
 position = Vector2(576, 324)
-y_top_speed = 1000.0
+player_id = 1
 
 [node name="UpperWall" parent="." unique_id=292088496 instance=ExtResource("3_h2yge")]
 position = Vector2(576, -10)
 
 [node name="LowerWall" parent="." unique_id=621780781 instance=ExtResource("3_h2yge")]
 position = Vector2(576, 658)
+
+[node name="ScoreWall_1" parent="." unique_id=1863739005 instance=ExtResource("4_1bvp3")]
+position = Vector2(-10, 324)
+
+[node name="ScoreWall_2" parent="." unique_id=1314898711 instance=ExtResource("4_1bvp3")]
+position = Vector2(1162, 324)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1879152686]
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=158447927]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "0 : 0"
+label_settings = SubResource("LabelSettings_1bvp3")
+script = ExtResource("5_lquwl")

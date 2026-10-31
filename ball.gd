@@ -11,13 +11,25 @@ func _physics_process(delta) -> void:
 	var y: float = 0
 	if player_id != 0:
 		y = Input.get_axis(prefix + "up", prefix + "down")
-	var target_speed: float = y * y_acceleration
+	var target_speed: float = (y * y_acceleration) + velocity.y
 	velocity.y = move_toward(
 		velocity.y, 
 		target_speed,
 		(y_accelerate_modifier(velocity.y) * y_acceleration * delta)
 		)
 	move_and_slide()
+	for i in get_slide_collision_count():
+		var collision := get_slide_collision(i)
+		var thing = collision.get_collider()
+		
+		if thing.is_in_group("walls"):
+			velocity.y = max(y_top_speed, velocity.y * 1.25)
+		elif thing.is_in_group("score_walls"):
+			emit_score()
+		elif thing.is_in_group("paddles"):
+			velocity.y = velocity.y * 0.75
+			player_id = thing.id
+	
 
 func y_accelerate_modifier(value: float) -> float:
 	value = abs(value)
@@ -27,3 +39,9 @@ func y_accelerate_modifier(value: float) -> float:
 func x_velocity_modifier(value: float) -> float:
 	value = abs(value)
 	return max(value / 500, 1.0)
+	
+
+
+func emit_score() -> void:
+	var side: int = 2 if (player_id == 1) else 1
+	GameState.add_one_to_score(side)
