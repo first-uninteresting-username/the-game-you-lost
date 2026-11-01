@@ -49,7 +49,10 @@ in
     echo "godot $(godot --version)"
   '';
 
-  scripts = {
+  scripts = let
+    # Project scripts only: skips vendored addons and generated directories.
+    findGd = "find \"$DEVENV_ROOT\" \\( -name addons -o -name .godot -o -name .devenv \\) -prune -o -name '*.gd'";
+  in {
     editor.exec = ''
       python3 ${enablePlugins} "$DEVENV_ROOT/project.godot" ${pkgs.lib.escapeShellArgs requiredPlugins}
       godot --editor --path "$DEVENV_ROOT" "$@"
@@ -59,7 +62,7 @@ in
       godot --headless --path "$DEVENV_ROOT" --export-release Web "$DEVENV_ROOT/build/web/index.html"
     '';
     serve-web.exec = "python3 -m http.server --directory \"$DEVENV_ROOT/build/web\" \"\${1:-8060}\"";
-    lint.exec = "gdlint \"$DEVENV_ROOT\" && gdformat --check \"$DEVENV_ROOT\"";
-    fmt.exec = "gdformat \"$DEVENV_ROOT\"";
+    lint.exec = "${findGd} -exec gdlint {} + && ${findGd} -exec gdformat --check {} +";
+    fmt.exec = "${findGd} -exec gdformat {} +";
   };
 }

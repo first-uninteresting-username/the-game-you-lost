@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://cwn2blidfwti0"]
+
+[ext_resource type="Script" uid="uid://c01muogqcnqo4" path="res://menu.gd" id="1_lti8b"]
+[ext_resource type="Script" uid="uid://3cf4v25yx1ck" path="res://objects/score.gd" id="2_ouk20"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_button"]
+content_margin_left = 16.0
+content_margin_top = 8.0
+content_margin_right = 16.0
+content_margin_bottom = 8.0
+bg_color = Color(0.1, 0.1, 0.1, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+
+[node name="Control" type="Control" unique_id=489521008]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lti8b")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1545850035]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Score" type="Label" parent="VBoxContainer" unique_id=1819210602]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 64
+horizontal_alignment = 1
+uppercase = true
+script = ExtResource("2_ouk20")
+
+[node name="GameName" type="Label" parent="VBoxContainer" unique_id=216697042]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "YOU ARE THE BALL"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="Explanation" type="Label" parent="VBoxContainer" unique_id=56943655]
+layout_mode = 2
+text = "PRESS SPACE TO PLAY
+HOLD SPACE FOR 1 SECOND TO FINISH"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="VBoxContainer" unique_id=1309078836]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+theme_override_styles/normal = SubResource("StyleBoxFlat_button")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_button")
+theme_override_styles/hover = SubResource("StyleBoxFlat_button")
+text = "SPACE"
+
+[node name="LicensesButton" type="Button" parent="." unique_id=734120956]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -96.0
+offset_top = -47.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "LICENSES"
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="LicensesButton" to="." method="_on_licenses_pressed"]
