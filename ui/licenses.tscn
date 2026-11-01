@@ -1,6 +1,6 @@
 [gd_scene format=3]
 
-[ext_resource type="Script" path="res://licenses.gd" id="1_licenses"]
+[ext_resource type="Script" uid="uid://cuiefp07efbsb" path="res://ui/licenses.gd" id="1_licenses"]
 
 [node name="Licenses" type="VBoxContainer"]
 anchors_preset = 15

@@ -1,6 +1,6 @@
 extends "res://players/player_base.gd"
 
-@export var y_acceleration: float = 50.0
+@export var y_acceleration: float = 100.0
 @export var y_top_speed: float = 2000.0
 
 var scored: bool = false
@@ -25,6 +25,7 @@ func _physics_process(delta) -> void:
 	velocity.y = move_toward(
 		velocity.y, target_speed, y_accelerate_modifier(velocity.y) * y_acceleration * delta
 	)
+	velocity.y = clampf(velocity.y, -y_top_speed, y_top_speed)
 	var vel := velocity
 	move_and_slide()
 	for i in get_slide_collision_count():
@@ -34,12 +35,12 @@ func _physics_process(delta) -> void:
 		if vel.dot(normal) < 0.0:
 			if thing.is_in_group("walls"):
 				var direction: int = -1 if vel.y >= 0 else 1
-				velocity.y = direction * min(abs(direction * y_top_speed), abs(vel.y * -1.25))
+				velocity.y = direction * min(abs(direction * y_top_speed), abs(vel.y * -1.2))
 			elif thing.is_in_group("score_walls") && scored == false:
 				emit_score()
 				scored = true
 			elif thing.is_in_group("paddles"):
-				velocity.y = vel.y * 0.75
+				velocity.y = vel.y * 0.5
 				player_id = thing.id
 
 

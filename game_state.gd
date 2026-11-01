@@ -25,13 +25,13 @@ func _process(delta: float) -> void:
 	var scene := get_tree().current_scene
 	if scene == null:
 		pass
-	elif scene.scene_file_path == "res://main.tscn" and Input.is_action_pressed("play"):
+	elif scene.scene_file_path == "res://ui/main.tscn" and Input.is_action_pressed("play"):
 		pressed_count = pressed_count + delta
 		if pressed_count >= 1.0:
-			get_tree().change_scene_to_file("res://menu.tscn")
+			get_tree().change_scene_to_file("res://ui/menu.tscn")
 			pressed_count = 0.0
 
-	elif scene.scene_file_path == "res://menu.tscn" and Input.is_action_just_pressed("play"):
+	elif scene.scene_file_path == "res://ui/menu.tscn" and Input.is_action_just_pressed("play"):
 		move_to_main()
 	else:
 		pressed_count = 0.0
@@ -40,4 +40,4 @@ func _process(delta: float) -> void:
 func move_to_main() -> void:
 	score_1 = 0
 	score_2 = 0
-	get_tree().change_scene_to_file("res://main.tscn")
+	get_tree().change_scene_to_file("res://ui/main.tscn")

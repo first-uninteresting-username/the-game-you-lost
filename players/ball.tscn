@@ -8,8 +8,8 @@ size = Vector2(25, 25)
 
 [node name="Ball" unique_id=242010540 instance=ExtResource("1_x8fbi")]
 script = ExtResource("2_41u45")
-y_acceleration = 50.0
-y_top_speed = 1000.0
+y_acceleration = 100.0
+y_top_speed = 2000.0
 speed = 200.0
 
 [node name="PlayerShape" parent="." index="0" unique_id=2060791932]
